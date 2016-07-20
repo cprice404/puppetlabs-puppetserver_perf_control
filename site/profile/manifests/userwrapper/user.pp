@@ -2,7 +2,7 @@ define profile::userwrapper::user (
   $key,
 ) {
 
-  include ::userwrapper
+  include ::profile::userwrapper
 
   $homedir = "/home/${name}"
   $home_source = "puppet:///modules/profile/userdirs/${name}"
