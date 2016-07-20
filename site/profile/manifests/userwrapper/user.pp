@@ -9,17 +9,17 @@ define profile::userwrapper::user (
   $homedir = "/home/${name}"
   $home_source = "puppet:///modules/profile/userdirs/${name}"
 
+  user { $name:
+    ensure     => present,
+    home       => $homedir,
+    managehome => false,
+  } ->
+
   file { "/var/users/${name}":
     ensure  => present,
     replace => false,
     content => "${name}",
     require => File['/var/users'],
-  } ->
-
-  user { $name:
-    ensure     => present,
-    home       => $homedir,
-    managehome => false,
   } ->
 
   file { $homedir:
