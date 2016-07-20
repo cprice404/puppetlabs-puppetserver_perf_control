@@ -1,4 +1,4 @@
-define userwrapper::user (
+define profile::userwrapper::user (
   $key,
 ) {
 

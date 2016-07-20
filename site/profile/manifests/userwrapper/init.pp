@@ -1,4 +1,4 @@
-class userwrapper {
+class profile::userwrapper {
   file { '/var/users':
     ensure => directory,
     owner  => 'root',
