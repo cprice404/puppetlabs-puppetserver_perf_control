@@ -4,7 +4,7 @@ class profile::sysop::packages {
   include ::epel
 
   package { 'rsync': ensure => latest; }
-  package { 'htop': ensure => latest; }
+  package { 'htop': ensure => latest; require => Yumrepo[epel] }
   package { 'screen': ensure => latest; }
   package { 'tmux': ensure => latest; }
   package { 'tcpdump': ensure => latest; }
@@ -12,12 +12,12 @@ class profile::sysop::packages {
   package { 'strace': ensure => latest; }
   package { 'lsof': ensure => latest; }
   package { 'iotop': ensure => latest; }
-  package { 'iftop': ensure => latest; }
+  package { 'iftop': ensure => latest; require => Yumrepo[epel] }
   package { 'dstat': ensure => latest; }
   package { 'mlocate': ensure => latest; }
   package { 'unzip': ensure => latest; }
   package { 'wget': ensure => latest; }
-  package { 'ack': ensure => latest; }
+  package { 'ack': ensure => latest; require => Yumrepo[epel] }
   package { 'bind-utils': ensure => latest; }
   package { 'vim-minimal': ensure => latest; }
   package { 'vim-common': ensure => latest; }
