@@ -27,6 +27,7 @@ mod 'puppetlabs/vcsrepo', '1.3.2'
 mod 'puppet/archive', '0.5.1'
 
 ## Basic linux host management
+mod 'stahnma/epel', '1.2.2'
 mod 'puppetlabs/accounts', '1.0.0'
 mod 'jlambert121/yum', '0.2.1'
 mod 'puppetlabs/ntp', '4.2.0'
