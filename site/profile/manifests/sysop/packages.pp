@@ -28,4 +28,29 @@ class profile::sysop::packages {
   package { 'bash-completion': ensure => latest; }
   package { 'zsh': ensure => latest; }
 
+  ## from here down are just random packages that I saw in the ops catalog
+
+  package {'cronie': ensure => latest; }
+  package {'crontabs': ensure => latest; }
+  package {'ca-certificates': ensure => latest; }
+  package {'yum-utils': ensure => latest; }
+  package {'redhat-lsb': ensure => latest; }
+  package {'openssl': ensure => latest; }
+  package {'python-virtualenv': ensure => latest; }
+  package {'python-pip': ensure => latest; }
+  package {'python-devel': ensure => latest; }
+  package {'python': ensure => latest; }
+  package {'open-vm-tools-deploypkg': ensure => latest; }
+  package {'ruby': ensure => latest; }
+  package {'rubygems': ensure => latest; }
+  package {'netaddr': ensure => latest; }
+  package {'puppet-agent': ensure => latest; }
+  package {'jq': ensure => latest; }
+  package {'dhclient': ensure => latest; }
+  package {'postfix': ensure => latest; }
+  package {'ntp': ensure => latest; }
+  package {'openssh-clients': ensure => latest; }
+  package {'openssh-server': ensure => latest; }
+  package {'sud': ensure => latest; }
+
 }
