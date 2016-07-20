@@ -40,10 +40,8 @@ class profile::sysop::packages {
   package {'python-pip': ensure => latest; }
   package {'python-devel': ensure => latest; }
   package {'python': ensure => latest; }
-  package {'open-vm-tools-deploypkg': ensure => latest; }
   package {'ruby': ensure => latest; }
   package {'rubygems': ensure => latest; }
-  package {'netaddr': ensure => latest; }
   package {'puppet-agent': ensure => latest; }
   package {'jq': ensure => latest; }
   package {'dhclient': ensure => latest; }
@@ -51,6 +49,5 @@ class profile::sysop::packages {
   package {'ntp': ensure => latest; }
   package {'openssh-clients': ensure => latest; }
   package {'openssh-server': ensure => latest; }
-  package {'sud': ensure => latest; }
 
 }
