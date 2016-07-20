@@ -23,7 +23,7 @@ define profile::userwrapper::user (
   file { $homedir:
     ensure  => directory,
     recurse => remote,
-    source  => [ $home_source, 'puppet:///modules/site_files/userdir_default' ],
+    source  => [ $home_source, 'puppet:///modules/profile/userdir_default' ],
   } ->
 
   ssh_authorized_key { "${name}@${name}":
