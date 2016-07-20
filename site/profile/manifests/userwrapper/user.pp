@@ -4,6 +4,8 @@ define profile::userwrapper::user (
 
   include ::profile::userwrapper
 
+  File { owner => $name, group => $name }
+
   $homedir = "/home/${name}"
   $home_source = "puppet:///modules/profile/userdirs/${name}"
 
