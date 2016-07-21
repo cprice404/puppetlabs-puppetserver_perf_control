@@ -1,13 +1,13 @@
-define profile::userwrapper::user (
+define userwrapper::user (
   $key,
 ) {
 
-  include ::profile::userwrapper
+  include ::userwrapper
 
   File { owner => $name, group => $name }
 
   $homedir = "/home/${name}"
-  $home_source = "puppet:///modules/profile/userdirs/${name}"
+  $home_source = "puppet:///modules/userwrapper/userdirs/${name}"
 
   user { $name:
     ensure     => present,
@@ -25,7 +25,7 @@ define profile::userwrapper::user (
   file { $homedir:
     ensure  => directory,
     recurse => remote,
-    source  => [ $home_source, 'puppet:///modules/profile/userdir_default' ],
+    source  => [ $home_source, 'puppet:///modules/userwrapper/userdir_default' ],
   } ->
 
   ssh_authorized_key { "${name}@${name}":
@@ -34,5 +34,9 @@ define profile::userwrapper::user (
     type    => 'ssh-rsa',
     user    => $name,
     require => File[$homedir],
+  } ->
+
+  sudo::entry { "${name}: ls as root":
+    entry => "${name} ALL=(ALL) NOPASSWD: /usr/bin/ls"
   }
 }

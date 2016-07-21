@@ -1,4 +1,6 @@
-class profile::userwrapper {
+class userwrapper {
+  include ::sudo
+
   file { '/var/users':
     ensure => directory,
     owner  => 'root',
