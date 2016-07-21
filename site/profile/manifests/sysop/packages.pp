@@ -30,7 +30,9 @@ class profile::sysop::packages {
 
   ## from here down are just random packages that I saw in the ops catalog
 
-  package {'cronie': ensure => latest; }
+#  package {'cronie': ensure => latest; }
+  include ::profile::sysop::packages::cronie
+
   package {'crontabs': ensure => latest; }
   package {'ca-certificates': ensure => latest; }
   package {'yum-utils': ensure => latest; }
