@@ -33,23 +33,42 @@ class profile::sysop::packages {
 #  package {'cronie': ensure => latest; }
   include ::profile::sysop::packages::cronie
 
-  package {'crontabs': ensure => latest; }
-  package {'ca-certificates': ensure => latest; }
-  package {'yum-utils': ensure => latest; }
-  package {'redhat-lsb': ensure => latest; }
-  package {'openssl': ensure => latest; }
-  package {'python-virtualenv': ensure => latest; }
-  package {'python-pip': ensure => latest; }
-  package {'python-devel': ensure => latest; }
-  package {'python': ensure => latest; }
-  package {'ruby': ensure => latest; }
-  package {'rubygems': ensure => latest; }
-  package {'puppet-agent': ensure => latest; }
-  package {'jq': ensure => latest; }
-  package {'dhclient': ensure => latest; }
-  package {'postfix': ensure => latest; }
-  package {'ntp': ensure => latest; }
-  package {'openssh-clients': ensure => latest; }
-  package {'openssh-server': ensure => latest; }
+#  package {'crontabs': ensure => latest; }
+#  package {'ca-certificates': ensure => latest; }
+#  package {'yum-utils': ensure => latest; }
+#  package {'redhat-lsb': ensure => latest; }
+#  package {'openssl': ensure => latest; }
+#  package {'python-virtualenv': ensure => latest; }
+#  package {'python-pip': ensure => latest; }
+#  package {'python-devel': ensure => latest; }
+#  package {'python': ensure => latest; }
+#  package {'ruby': ensure => latest; }
+#  package {'rubygems': ensure => latest; }
+#  package {'puppet-agent': ensure => latest; }
+#  package {'jq': ensure => latest; }
+#  package {'dhclient': ensure => latest; }
+#  package {'postfix': ensure => latest; }
+#  package {'ntp': ensure => latest; }
+#  package {'openssh-clients': ensure => latest; }
+#  package {'openssh-server': ensure => latest; }
+
+  include ::profile::systop::packages::crontabs
+  include ::profile::systop::packages::ca_certificates
+  include ::profile::systop::packages::yum_utils
+  include ::profile::systop::packages::redhat_lsb
+  include ::profile::systop::packages::openssl
+  include ::profile::systop::packages::python_virtualenv
+  include ::profile::systop::packages::python_pip
+  include ::profile::systop::packages::python_devel
+  include ::profile::systop::packages::python
+  include ::profile::systop::packages::ruby
+  include ::profile::systop::packages::rubygems
+  include ::profile::systop::packages::puppet_agent
+  include ::profile::systop::packages::jq
+  include ::profile::systop::packages::dhclient
+  include ::profile::systop::packages::postfix
+  include ::profile::systop::packages::ntp
+  include ::profile::systop::packages::openssh_clients
+  include ::profile::systop::packages::openssh_server
 
 }
