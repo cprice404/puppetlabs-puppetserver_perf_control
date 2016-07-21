@@ -52,23 +52,23 @@ class profile::sysop::packages {
 #  package {'openssh-clients': ensure => latest; }
 #  package {'openssh-server': ensure => latest; }
 
-  include ::profile::systop::packages::crontabs
-  include ::profile::systop::packages::ca_certificates
-  include ::profile::systop::packages::yum_utils
-  include ::profile::systop::packages::redhat_lsb
-  include ::profile::systop::packages::openssl
-  include ::profile::systop::packages::python_virtualenv
-  include ::profile::systop::packages::python_pip
-  include ::profile::systop::packages::python_devel
-  include ::profile::systop::packages::python
-  include ::profile::systop::packages::ruby
-  include ::profile::systop::packages::rubygems
-  include ::profile::systop::packages::puppet_agent
-  include ::profile::systop::packages::jq
-  include ::profile::systop::packages::dhclient
-  include ::profile::systop::packages::postfix
-  include ::profile::systop::packages::ntp
-  include ::profile::systop::packages::openssh_clients
-  include ::profile::systop::packages::openssh_server
+  include ::profile::sysop::packages::crontabs
+  include ::profile::sysop::packages::ca_certificates
+  include ::profile::sysop::packages::yum_utils
+  include ::profile::sysop::packages::redhat_lsb
+  include ::profile::sysop::packages::openssl
+  include ::profile::sysop::packages::python_virtualenv
+  include ::profile::sysop::packages::python_pip
+  include ::profile::sysop::packages::python_devel
+  include ::profile::sysop::packages::python
+  include ::profile::sysop::packages::ruby
+  include ::profile::sysop::packages::rubygems
+  include ::profile::sysop::packages::puppet_agent
+  include ::profile::sysop::packages::jq
+  include ::profile::sysop::packages::dhclient
+  include ::profile::sysop::packages::postfix
+  include ::profile::sysop::packages::ntp
+  include ::profile::sysop::packages::openssh_clients
+  include ::profile::sysop::packages::openssh_server
 
 }
