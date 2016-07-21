@@ -3,4 +3,6 @@ class role::by_size::medium {
   include ::profile::postgresql::basic
   include ::profile::users
   include ::profile::sysop::packages
+
+  include ::profile::motd
 }
