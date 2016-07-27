@@ -19,6 +19,11 @@ class profile::hiera_check(
     fail("Hiera lookup appears to have failed; location_checkfield: '${location_checkfield}'")
   }
 
+  $location_stage_checkfield = hiera('location::portland::prod::hiera_check_field')
+  if ($location_stage_checkfield != "correct value") {
+    fail("Hiera lookup appears to have failed; location_stage_checkfield: '${location_stage_checkfield}'")
+  }
+
   if ($param_to_validate != "correct value") {
     fail("Hiera lookup appears to have failed; param_to_validate: '${param_to_validate}'")
   }
