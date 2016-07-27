@@ -20,7 +20,7 @@ class profile::hiera_check(
   }
 
   $location_stage_checkfield = hiera('location::portland::prod::hiera_check_field')
-  if ($location_stage_checkfield != "correcty value") {
+  if ($location_stage_checkfield != "correct value") {
     fail("Hiera lookup appears to have failed; location_stage_checkfield: '${location_stage_checkfield}'")
   }
 
