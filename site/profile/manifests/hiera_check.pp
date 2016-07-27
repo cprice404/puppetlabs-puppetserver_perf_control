@@ -29,6 +29,11 @@ class profile::hiera_check(
     fail("Hiera lookup appears to have failed; group_checkfield: '${$group_checkfield}'")
   }
 
+  $group_stage_checkfield = hiera('groups::pgtomcat::prod::hiera_check_field')
+  if ($group_stage_checkfield != "correctal value") {
+    fail("Hiera lookup appears to have failed; group_stage_checkfield: '${$group_stage_checkfield}'")
+  }
+
   if ($param_to_validate != "correct value") {
     fail("Hiera lookup appears to have failed; param_to_validate: '${param_to_validate}'")
   }
