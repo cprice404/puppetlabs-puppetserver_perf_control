@@ -30,7 +30,7 @@ class profile::hiera_check(
   }
 
   $group_stage_checkfield = hiera('groups::pgtomcat::prod::hiera_check_field')
-  if ($group_stage_checkfield != "correctal value") {
+  if ($group_stage_checkfield != "correct value") {
     fail("Hiera lookup appears to have failed; group_stage_checkfield: '${$group_stage_checkfield}'")
   }
 
