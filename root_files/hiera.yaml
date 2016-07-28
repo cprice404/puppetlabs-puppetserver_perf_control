@@ -27,3 +27,14 @@
   - "modules/%{module_name}"
   - "stages/%{stage}"
   - "common"
+
+
+
+
+       f = "./hieradata/groups/group#{i}/dev.yaml"
+       m = (rand(20) <= 3) ?
+ym.make_big_map("groups::group#{i}::dev::big_map", 1 + rand(5)) : ""
+       File.write(f, "---\n" + m + "\n" + ym.make_uuids(0,
+"groups::group#{i}::dev::uuid", 3 + rand(10)))
+    end
+end
