@@ -39,8 +39,6 @@ class profile::hiera_check(
     fail("Hiera lookup appears to have failed; group_location_stage_checkfield: '${$group_location_stage_checkfield}'")
   }
 
-  groups::pgtomcat::portland::prod::hiera_check_field
-
   if ($param_to_validate != "correct value") {
     fail("Hiera lookup appears to have failed; param_to_validate: '${param_to_validate}'")
   }
