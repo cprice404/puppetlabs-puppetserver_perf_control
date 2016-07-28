@@ -35,7 +35,7 @@ class profile::hiera_check(
   }
 
   $group_location_stage_checkfield = hiera('groups::pgtomcat::portland::prod::hiera_check_field')
-  if ($group_location_stage_checkfield != "correcty value") {
+  if ($group_location_stage_checkfield != "correct value") {
     fail("Hiera lookup appears to have failed; group_location_stage_checkfield: '${$group_location_stage_checkfield}'")
   }
 
