@@ -15,10 +15,32 @@ ym = YamlMaker.new
 #     File.write(f, "---\n" + ym.make_uuids(0, "groups::group#{i}::loc1::#{stage}::uuid", 4))
 #   end
 # end
-d = File.join(root_dir, "hieradata/groups/group4/loc2")
-FileUtils.mkdir_p(d)
-["prod", "stage"].each do |stage|
-  f = File.join(d, "#{stage}.yaml")
-  File.write(f, "---\n" + ym.make_uuids(0, "groups::group4::loc2::#{stage}::uuid", 50) +
-      "\n" + ym.make_big_map("groups::group4::loc2::#{stage}::big_map", 5))
+
+# d = File.join(root_dir, "hieradata/groups/group4/loc2")
+# FileUtils.mkdir_p(d)
+# ["prod", "stage"].each do |stage|
+#   f = File.join(d, "#{stage}.yaml")
+#   File.write(f, "---\n" + ym.make_uuids(0, "groups::group4::loc2::#{stage}::uuid", 50) +
+#       "\n" + ym.make_big_map("groups::group4::loc2::#{stage}::big_map", 5))
+# end
+
+(1..75).each do |i|
+  group = 1 + rand(45)
+  function = 1 + rand(20)
+  d = File.join(root_dir, "hieradata/groups/group#{group}")
+  FileUtils.mkdir_p(d)
+  f = File.join(d, "function#{function}.yaml")
+  uuids = ym.make_uuids(0, "groups::group#{group}::function#{function}::uuid",
+                        1 + rand(6))
+  m = ""
+
+  if i < 4
+    m = ym.make_big_map("groups::group#{group}::function#{function}::big_map", 10)
+  elsif i < 15
+    uuids += "\n" + ym.make_uuids(0, "groups::group#{group}::function#{function}::moaruuid",
+                                  8 + rand(5))
+  end
+
+  File.write(f, "---\n" + uuids + "\n" + m)
+
 end
