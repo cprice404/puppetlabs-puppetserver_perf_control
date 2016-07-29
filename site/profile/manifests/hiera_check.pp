@@ -54,6 +54,16 @@ class profile::hiera_check(
     fail("Hiera lookup appears to have failed; domain_checkfield: '${domain_checkfield}'")
   }
 
+  $domain_stage_checkfield = hiera('domains::pgtomcat_mycompany_org::stages::prod::hiera_check_field')
+  if ($domain_stage_checkfield != "correcty value") {
+    fail("Hiera lookup appears to have failed; domain_stage_checkfield: '${domain_stage_checkfield}'")
+  }
+
+  $domain_group_checkfield = hiera('domains::pgtomcat_mycompany_org::groups::pgtomcat::hiera_check_field')
+  if ($domain_group_checkfield != "correcty value") {
+    fail("Hiera lookup appears to have failed; domain_group_checkfield: '${domain_group_checkfield}'")
+  }
+
   if ($param_to_validate != "correct value") {
     fail("Hiera lookup appears to have failed; param_to_validate: '${param_to_validate}'")
   }
