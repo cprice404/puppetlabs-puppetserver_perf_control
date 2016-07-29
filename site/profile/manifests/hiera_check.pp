@@ -55,7 +55,7 @@ class profile::hiera_check(
   }
 
   $domain_stage_checkfield = hiera('domains::pgtomcat_mycompany_org::stages::prod::hiera_check_field')
-  if ($domain_stage_checkfield != "correcty value") {
+  if ($domain_stage_checkfield != "correct value") {
     fail("Hiera lookup appears to have failed; domain_stage_checkfield: '${domain_stage_checkfield}'")
   }
 
