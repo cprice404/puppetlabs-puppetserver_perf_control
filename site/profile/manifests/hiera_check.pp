@@ -50,7 +50,7 @@ class profile::hiera_check(
   }
 
   $domains::pgtomcat_mycompany_org::hiera_check_field = hiera('domains::pgtomcat_mycompany_org::hiera_check_field')
-  if ($domains::pgtomcat_mycompany_org::hiera_check_field != "correctly value") {
+  if ($domains::pgtomcat_mycompany_org::hiera_check_field != "correct value") {
     fail("Hiera lookup appears to have failed; domains::pgtomcat_mycompany_org::hiera_check_field: '${domains::pgtomcat_mycompany_org::hiera_check_field}'")
   }
 
