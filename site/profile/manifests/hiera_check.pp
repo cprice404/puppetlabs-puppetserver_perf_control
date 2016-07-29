@@ -40,7 +40,7 @@ class profile::hiera_check(
   }
 
   $group_function_checkfield = hiera('groups::pgtomcat::app::hiera_check_field')
-  if ($group_function_checkfield != "correcty value") {
+  if ($group_function_checkfield != "correct value") {
     fail("Hiera lookup appears to have failed; group_function_checkfield: '${$group_function_checkfield}'")
   }
 
