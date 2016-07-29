@@ -4,6 +4,13 @@
 class profile::hiera_check(
   $param_to_validate = "wrong value"
 ) {
+
+  # Validate that the class param to this class was injected from hiera
+  if ($param_to_validate != "correct value") {
+    fail("Hiera lookup appears to have failed; param_to_validate: '${param_to_validate}'")
+  }
+
+  # Validate data from the various levels of the hierarchy
   $location = hiera('location')
   if ($location != "portland") {
     fail("Hiera lookup appears to have failed; location: '${location}'")
@@ -64,7 +71,7 @@ class profile::hiera_check(
     fail("Hiera lookup appears to have failed; domain_group_checkfield: '${domain_group_checkfield}'")
   }
 
-  if ($param_to_validate != "correct value") {
-    fail("Hiera lookup appears to have failed; param_to_validate: '${param_to_validate}'")
-  }
+  # Note that we are omitting any checks from the levels that use fqdn/hostname,
+  # because those will be very volatile in gatling testing.
+
 }
