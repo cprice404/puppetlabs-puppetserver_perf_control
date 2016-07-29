@@ -26,27 +26,32 @@ class profile::hiera_check(
 
   $group_checkfield = hiera('groups::pgtomcat::hiera_check_field')
   if ($group_checkfield != "correct value") {
-    fail("Hiera lookup appears to have failed; group_checkfield: '${$group_checkfield}'")
+    fail("Hiera lookup appears to have failed; group_checkfield: '${group_checkfield}'")
   }
 
   $group_stage_checkfield = hiera('groups::pgtomcat::prod::hiera_check_field')
   if ($group_stage_checkfield != "correct value") {
-    fail("Hiera lookup appears to have failed; group_stage_checkfield: '${$group_stage_checkfield}'")
+    fail("Hiera lookup appears to have failed; group_stage_checkfield: '${group_stage_checkfield}'")
   }
 
   $group_location_stage_checkfield = hiera('groups::pgtomcat::portland::prod::hiera_check_field')
   if ($group_location_stage_checkfield != "correct value") {
-    fail("Hiera lookup appears to have failed; group_location_stage_checkfield: '${$group_location_stage_checkfield}'")
+    fail("Hiera lookup appears to have failed; group_location_stage_checkfield: '${group_location_stage_checkfield}'")
   }
 
   $group_function_checkfield = hiera('groups::pgtomcat::app::hiera_check_field')
   if ($group_function_checkfield != "correct value") {
-    fail("Hiera lookup appears to have failed; group_function_checkfield: '${$group_function_checkfield}'")
+    fail("Hiera lookup appears to have failed; group_function_checkfield: '${group_function_checkfield}'")
   }
 
   $group_function_stage_checkfield = hiera('groups::pgtomcat::app::prod::hiera_check_field')
   if ($group_function_stage_checkfield != "correct value") {
-    fail("Hiera lookup appears to have failed; group_function_stage_checkfield: '${$group_function_stage_checkfield}'")
+    fail("Hiera lookup appears to have failed; group_function_stage_checkfield: '${group_function_stage_checkfield}'")
+  }
+
+  $domains::pgtomcat.mycompany.org::hiera_check_field = hiera('domains::pgtomcat.mycompany.org::hiera_check_field')
+  if ($domains::pgtomcat.mycompany.org::hiera_check_field != "correctly value") {
+    fail("Hiera lookup appears to have failed; domains::pgtomcat.mycompany.org::hiera_check_field: '${domains::pgtomcat.mycompany.org::hiera_check_field}'")
   }
 
   if ($param_to_validate != "correct value") {
