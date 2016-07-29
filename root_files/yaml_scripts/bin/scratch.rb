@@ -64,15 +64,15 @@ ym = YamlMaker.new
 #
 # end
 
-(1..6).each do |i|
-  f = File.join(root_dir, "subdomain#{i}.mycompany.org.yaml")
-  uuids = ym.make_uuids(0, "domains::subdomain#{i}_mycompany_org::uuid",
-                        1 + rand(7))
+["test"].each do |stage|
+  d = File.join(root_dir, "hieradata/domains/subdomain2.mycompany.org/stages")
+  f = File.join(d, "#{stage}.yaml")
+  uuids = ym.make_uuids(0, "domains::subdomain2_mycompany_org::stages::#{stage}::uuid",
+                        10)
+  m = ym.make_big_map("domains::subdomain2_mycompany_org::stages::#{stage}::bigmap1", 4) +
+      "\n" +
+      ym.make_big_map("domains::subdomain2_mycompany_org::stages::#{stage}::bigmap2", 4)
 
-  if i < 2
-    uuids += "\n" + ym.make_uuids(0, "domains::subdomain#{i}_mycompany_org::moaruuid", 10 + rand(10))
-  end
 
-  File.write(f, "---\n" + uuids)
-
+  File.write(f, "---\n" + uuids + "\n" + m)
 end
