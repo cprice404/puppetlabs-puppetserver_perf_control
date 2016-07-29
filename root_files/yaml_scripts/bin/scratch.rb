@@ -45,21 +45,34 @@ ym = YamlMaker.new
 #
 # end
 
-(1..20).each do |i|
-  group = 1 + rand(45)
-  function = 1 + rand(20)
-  stage = ["dev", "test", "prod", "stage"][rand(4)]
-  d = File.join(root_dir, "hieradata/groups/group#{group}/function#{function}")
-  FileUtils.mkdir_p(d)
-  f = File.join(d, "#{stage}.yaml")
-  uuids = ym.make_uuids(0, "groups::group#{group}::function#{function}::#{stage}::uuid",
-                        1 + rand(2))
-  m = ""
+# (1..20).each do |i|
+#   group = 1 + rand(45)
+#   function = 1 + rand(20)
+#   stage = ["dev", "test", "prod", "stage"][rand(4)]
+#   d = File.join(root_dir, "hieradata/groups/group#{group}/function#{function}")
+#   FileUtils.mkdir_p(d)
+#   f = File.join(d, "#{stage}.yaml")
+#   uuids = ym.make_uuids(0, "groups::group#{group}::function#{function}::#{stage}::uuid",
+#                         1 + rand(2))
+#   m = ""
+#
+#   if i < 2
+#     m = ym.make_big_map("groups::group#{group}::function#{function}::#{stage}::big_map", 5)
+#   end
+#
+#   File.write(f, "---\n" + uuids + "\n" + m)
+#
+# end
+
+(1..6).each do |i|
+  f = File.join(root_dir, "subdomain#{i}.mycompany.org.yaml")
+  uuids = ym.make_uuids(0, "domains::subdomain#{i}_mycompany_org::uuid",
+                        1 + rand(7))
 
   if i < 2
-    m = ym.make_big_map("groups::group#{group}::function#{function}::#{stage}::big_map", 5)
+    uuids += "\n" + ym.make_uuids(0, "domains::subdomain#{i}_mycompany_org::moaruuid", 10 + rand(10))
   end
 
-  File.write(f, "---\n" + uuids + "\n" + m)
+  File.write(f, "---\n" + uuids)
 
 end
